@@ -16,10 +16,21 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #a4cab6;
   font-size: 24px;
+  padding-top: 120px;
 }
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+
+  margin-left: 5%;
+  margin-right: 5%;
+  font-family: 'source sans pro';
+
+ }

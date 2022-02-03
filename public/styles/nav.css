@@ -1,0 +1,42 @@
+nav {
+  background-color: #315561;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding-left:1.5em;
+  padding-right:1.5em;
+  color: #FFFFFF;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%;
+
+}
+
+nav span {
+  font-family: 'Bungee';
+  margin-top: 1.25em;
+  font-size: xx-large;
+
+}
+
+nav span p {
+  margin-bottom: 0;
+  margin-top: 0;
+
+}
+
+.nav-right {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'source sans pro';
+  
+}
+
+.fa-solid.fa-angles-down {
+
+  color: #C4462B;
+
+}

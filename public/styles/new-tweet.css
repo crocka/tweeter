@@ -1,0 +1,107 @@
+main section form label{
+  border-width: 1.5em;
+  padding-top: 1.5em;
+}
+
+#tweet-text {
+
+  background-color: transparent;
+  border-width: 0;
+  border-bottom-width: medium;
+  border-bottom-color: black;
+  height:1.5em;
+
+}
+
+main section form div button {
+
+  background-color: #315561;
+  color: white;
+  border-width: 0em;
+  margin-top: 0.5em;
+
+}
+main section form {
+  display: flex;
+  flex-direction: column;
+}
+
+main section form div {
+  font-family: 'Bungee';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main section .tweets{
+
+  margin-top: 1.5em;
+  border: medium solid black; 
+  padding-bottom: 0.5em;
+
+
+}
+
+.tweets .avatar {
+
+  height: 2em;
+  margin-right: 1em;
+
+}
+
+.tweets span {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.tweets span div {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+
+}
+
+.tweets p{
+
+  border-bottom: thin solid black; 
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+
+
+}
+
+.tweets footer {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  
+}
+
+.flags {
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.flags :hover {
+
+  color: #C4462B;
+}
+
+main section .tweets :hover {
+
+  box-shadow: 5px 10px #315561;
+
+}

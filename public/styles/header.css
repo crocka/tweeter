@@ -1,0 +1,16 @@
+header {
+  height: 400px;
+  background-image: url('/images/arches.png');
+  background-color: #69a794;
+  padding-top: 1em;
+
+}
+
+header div {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'source sans pro';
+  
+}
