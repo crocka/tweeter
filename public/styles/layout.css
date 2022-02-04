@@ -36,22 +36,24 @@ body {
  }
 
  .float{
+
 	position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color:#0C9;
+	background-color:#C4462B;
 	color:#FFF;
 	border-radius:50px;
+  border: none;
 	text-align:center;
 	
 }
 
-.float :hover {
+.float:hover {
 
-  box-shadow: 2px 2px 3px #999;
-  
+  box-shadow: 2px 2px #315561;
+
 }
 
 /* Large screen styles */
