@@ -14,8 +14,10 @@ $(() => {
 
 const loop = function ($bouncer) {
 
+  //write animation
   $($bouncer).animate({ 'margin': '10' }, {
     duration: 100,
+    //after completion, we animate back to the original position and call loop() again;
     complete: function () {
       $($bouncer).animate({ margin: 0 }, {
         duration: 500,

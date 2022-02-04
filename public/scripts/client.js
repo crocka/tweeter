@@ -19,11 +19,7 @@ const createTweetElement = function (tweet) {
     <h3 for="userId">${tweet.user.handle}</h3>
   </span>
 
-
-  <p>
-    ${tweet.content.text}
-  </p>
-
+  <p>${escape(tweet.content.text)}</p>
 
   <footer>
     <div for='post-time'>
@@ -40,6 +36,17 @@ const createTweetElement = function (tweet) {
 
   return newTweetScript;
 
+};
+
+//escape function as given by compass
+const escape = function (str) {
+
+  let div = document.createElement("div");
+
+  div.appendChild(document.createTextNode(str));
+
+  return div.innerHTML;
+  
 };
 
 //append the the array of tweets to index.html
@@ -112,15 +119,6 @@ $(() => {
     const tweetText = $('#submitTweet').serialize();
     const text = tweetText.split('=')[1];
 
-    // tweetText = $("<p>").text(tweetText);
-
-    // console.log(tweetText);
-
-    // console.log($('#tweet-text'))
-
-    
-    
-
     if (text) { //if the input is empty, show no-content error
 
       if (text.length <= 140) { //if the input is too long, show exceed-limit error
@@ -154,15 +152,3 @@ $(() => {
   });
 
 });
-
-// tweetText.split('=')[1] ? (tweetText.split('=')[1].length <= 140 ? $.post('/tweets', tweetText).then((data) => {
-    //   $.get('/tweets', (data) => {
-
-    //     renderTweets(data);
-
-    //     //clear text area and reset counter
-    //     $('#tweet-text').val('');
-    //     $('.counter').val(140);
-
-    //   })
-    // }) : slideError($('#exceed-limit'))) : slideError($('#no-content'));
