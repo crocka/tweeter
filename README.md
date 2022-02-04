@@ -19,3 +19,12 @@ This repository is the starter code for the project: Students will fork and clon
 - body-parser
 - chance
 - md5
+
+
+## Screenshots
+
+!["Mobile mode"](https://github.com/crocka/tweeter/blob/master/docs/Mobile-mode-with-form-shown.png)
+!["Desktop mode"](https://github.com/crocka/tweeter/blob/master/docs/desktop-mode-with-form-shown.png)
+!["Back-to-the-top button at lower right corner"](https://github.com/crocka/tweeter/blob/master/docs/back-to-the-top-button.png)
+!["Error message for exceeding character limit"](https://github.com/crocka/tweeter/blob/master/docs/exceed-limit-error.png)
+!["Error message for empty text"](https://github.com/crocka/tweeter/blob/master/docs/no-content-error.png)
