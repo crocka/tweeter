@@ -1,4 +1,4 @@
-main section form label{
+#submitTweet label{
   border-width: 1.5em;
   padding-top: 1.5em;
 }
@@ -10,10 +10,11 @@ main section form label{
   border-bottom-width: medium;
   border-bottom-color: black;
   height:1.5em;
+  word-wrap: break-word;
 
 }
 
-main section form div button {
+#submitTweet div button {
 
   background-color: #315561;
   color: white;
@@ -21,12 +22,12 @@ main section form div button {
   margin-top: 0.5em;
 
 }
-main section form {
+#submitTweet {
   display: flex;
   flex-direction: column;
 }
 
-main section form div {
+#submitTweet div {
   font-family: 'Bungee';
   display: flex;
   flex-direction: row;
@@ -100,8 +101,15 @@ main section .tweets{
   color: #C4462B;
 }
 
-main section .tweets :hover {
+/* Large screen styles */
+@media only screen and (min-width: 1024px) {
 
-  box-shadow: 5px 10px #315561;
+  .container {
+
+    position: absolute;
+    right: 0;
+
+
+  }
 
 }

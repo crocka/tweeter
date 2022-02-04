@@ -24,7 +24,7 @@
     rel="stylesheet">
 
 
-
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
 
   <!-- App CSS -->
@@ -36,6 +36,8 @@
 
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
+  <link rel="stylesheet" href="/styles/error.css" type="text/css" />
+
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -45,6 +47,8 @@
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
   <script type="text/javascript" src="/scripts/tweets.js"></script>
+
+
 </head>
 
 <body>
@@ -52,7 +56,9 @@
   <nav>
     <span>tweeter</span>
     <span class='nav-right'>
-      <p><b>Write</b> a new tweet</p>
+      <p>
+        <b>Write</b> a new tweet
+      </p>
       <i class="fa-solid fa-angles-down"></i>
     </span>
 
@@ -71,19 +77,37 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    
+    <div class='error'>
+      <h3 id='no-content'>
+        Please do not leave the input field empty.
+      </h3>
+      <h3 id='exceed-limit'>
+        Text must be less than 140 characters.
+      </h3>
+    </div>
+
+    <form id='submitTweet'>
+      <label for="tweet-text">What are you humming about?</label>
+      <textarea name="text" id="tweet-text"></textarea>
+      <div>
+        <button type="submit">Tweet</button>
+        <output name="counter" class="counter" for="tweet-text">140</output>
+      </div>
+    </form>
+
     <section class="new-tweet">
-      <form id='submitTweet'>
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
+
+
 
       <!-- tweets render script will be added here by renderTweet function -->
-      
+
+
     </section>
+
+    <button class="float">
+      <i class="fa fa-plus my-float"></i>
+    </button>
 
   </main>
 </body>

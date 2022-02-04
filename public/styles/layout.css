@@ -34,3 +34,34 @@ body {
   font-family: 'source sans pro';
 
  }
+
+ .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	
+}
+
+.float :hover {
+
+  box-shadow: 2px 2px 3px #999;
+  
+}
+
+/* Large screen styles */
+@media only screen and (min-width: 1024px) {
+
+  body {
+
+    display:flex;
+    flex-direction: row;
+
+  }
+
+}

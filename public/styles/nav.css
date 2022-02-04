@@ -1,5 +1,6 @@
 nav {
-  background-color: #315561;
+  background-color: #69a794;
+  background-image: url('/images/arches.png');
   height: 120px;
   display: flex;
   justify-content: space-between;
@@ -38,5 +39,18 @@ nav span p {
 .fa-solid.fa-angles-down {
 
   color: #C4462B;
+
+}
+
+/* Large screen styles */
+@media only screen and (min-width: 1024px) {
+
+  nav{
+
+    background-color: #315561;
+    z-index: 99;
+
+  }
+  
 
 }

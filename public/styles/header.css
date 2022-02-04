@@ -14,3 +14,16 @@ header div {
   font-family: 'source sans pro';
   
 }
+
+/* Large screen styles */
+@media only screen and (min-width: 1024px) {
+
+  body header{
+
+    position:fixed; /* Set the navbar to fixed position */
+    height: 100vw;
+    width: 25vw;
+
+  }
+
+}

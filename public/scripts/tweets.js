@@ -1,22 +1,13 @@
-$(document).ready(function () {
+$(() => {
 
   $('.tweets').hover(function () {
 
-    $(this).css('box-shadow', '5px 10px #315561');
+    $('.tweets').css('box-shadow', '5px 10px #315561');
+    console.log('helasdf')
 
   }, function () {
 
-    $(this).css('box-shadow', '');
-
-  });
-
-  $('.tweets .flags i').hover(function () {
-
-    $(this).css('color', '#C4462B');
-
-  }, function () {
-
-    $(this).css('color', '');
+    $('.tweets').css('box-shadow', '');
 
   });
 

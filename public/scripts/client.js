@@ -26,9 +26,7 @@ const createTweetElement = function (tweet) {
 
   <footer>
     <div for='post-time'>
-    <script href="dist/timeago.js" type="text/javascript">
-    ${tweet.created_at}
-    </script>
+    ${timeago.format(tweet.created_at)}
     </div>
     <div class='flags'>
       <i class="fa-solid fa-flag"></i>
@@ -45,40 +43,139 @@ const createTweetElement = function (tweet) {
 
 const renderTweets = function (tweets) {
 
-  tweets.reverse().forEach((tweet) => {
+  tweets.forEach((tweet) => {
 
-    $('.container .new-tweet').append(createTweetElement(tweet));
+    $('.container .new-tweet').prepend(createTweetElement(tweet));
 
   });
 
 };
 
+const slideError = function ($error) {
+
+  $error.slideDown();
+
+  setTimeout(() => {
+
+    if (!$error.is(":hidden")) {
+
+      $error.slideUp();
+
+    }
+
+  }, 3000);
+
+};
+
+const loop = function ($bouncer) {
+
+  $($bouncer).animate({ 'margin': '10' }, {
+    duration: 100,
+    complete: function () {
+      $($bouncer).animate({ margin: 0 }, {
+        duration: 500,
+        complete: loop($bouncer)
+      });
+    }
+  });
+};
+
 $(() => {
 
-  $('#submitTweet').submit(function (event) {
+  //hover for arrow motion
+  $('.nav-right').hover(function () {
 
-    event.preventDefault();
+    loop($('.fa-angles-down'));
 
-    const tweetText = $('#submitTweet').serialize();
+  }, function () {//motion stop when mouse leaves
 
-    $.ajax({
-
-      type: 'post',
-      url:'/tweets',
-      data: tweetText,
-    });
-
-
-    // tweetText.split('=')[1] ? $.post('/tweets', tweetText) : alert('The input is empty');
-
-    // console.log(tweetText.split('='));
+    $('.fa-angles-down').stop(true);
 
   });
 
+  //click on the right side of the navigation bar
+  $('.nav-right').click(function () {
+
+    //if the textarea is hidden, show it, otherwise, hide it
+    $('#submitTweet').is(':hidden') ? $('#submitTweet').slideDown() : $('#submitTweet').slideUp();
+
+  });
+
+  //get request for the previous tweets
   $.get('/tweets', (data) => {
 
     renderTweets(data);
 
   });
 
+  //hide the errors and the text area
+  $("#no-content").hide();
+  $('#exceed-limit').hide();
+  $('#submitTweet').hide();
+
+  //ajax submit request
+  $('#submitTweet').submit(function (event) {
+
+    event.preventDefault();
+
+    //slide error up everytime clicking the submit button
+    $("#no-content").slideUp();
+    $('#exceed-limit').slideUp();
+
+    const tweetText = $('#submitTweet').serialize();
+    const text = tweetText.split('=')[1];
+
+    // tweetText = $("<p>").text(tweetText);
+
+    // console.log(tweetText);
+
+    // console.log($('#tweet-text'))
+
+    
+    
+
+    if (text) { //if the input is empty, show no-content error
+
+      if (text.length <= 140) { //if the input is too long, show exceed-limit error
+
+        $.post('/tweets', tweetText).then((data) => {
+
+          $.get('/tweets', (data) => {
+
+            renderTweets(data);
+
+            //clear text area and reset counter
+            $('#tweet-text').val('');
+            $('.counter').val(140);
+
+          })
+        });
+
+      } else {
+
+        slideError($('#exceed-limit'));
+
+      }
+
+    } else {
+
+        slideError($('#no-content'));
+
+    }
+    
+
+  });
+
 });
+
+// tweetText.split('=')[1] ? (tweetText.split('=')[1].length <= 140 ? $.post('/tweets', tweetText).then((data) => {
+    //   $.get('/tweets', (data) => {
+
+    //     renderTweets(data);
+
+    //     //clear text area and reset counter
+    //     $('#tweet-text').val('');
+    //     $('.counter').val(140);
+
+    //   })
+    // }) : slideError($('#exceed-limit'))) : slideError($('#no-content'));

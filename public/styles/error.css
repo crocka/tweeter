@@ -1,0 +1,21 @@
+#no-content {
+
+  border-width: medium;
+  border-color: #C4462B;
+  border-style: solid;
+  color: #C4462B;
+  display: flex;
+  justify-content: center;
+
+}
+
+#exceed-limit {
+
+  border-width: medium;
+  border-color: #C4462B;
+  border-style: solid;
+  color: #C4462B;
+  display: flex;
+  justify-content: center;
+
+}
