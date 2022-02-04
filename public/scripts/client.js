@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//return the html code for each new tweet created
 const createTweetElement = function (tweet) {
 
   const newTweetScript = `
@@ -41,6 +42,7 @@ const createTweetElement = function (tweet) {
 
 };
 
+//append the the array of tweets to index.html
 const renderTweets = function (tweets) {
 
   tweets.forEach((tweet) => {
@@ -51,6 +53,7 @@ const renderTweets = function (tweets) {
 
 };
 
+//error would slide down and slide back up in 3 seconds
 const slideError = function ($error) {
 
   $error.slideDown();
@@ -67,44 +70,28 @@ const slideError = function ($error) {
 
 };
 
-const loop = function ($bouncer) {
+//function to activate tweetsHovering
+const tweetsHover = function () {
 
-  $($bouncer).animate({ 'margin': '10' }, {
-    duration: 100,
-    complete: function () {
-      $($bouncer).animate({ margin: 0 }, {
-        duration: 500,
-        complete: loop($bouncer)
-      });
-    }
+  $('.tweets').hover(function () {
+
+    $(this).css('box-shadow', '5px 10px #315561');
+
+  }, function () {
+
+    $(this).css('box-shadow', '');
+
   });
+
 };
 
 $(() => {
-
-  //hover for arrow motion
-  $('.nav-right').hover(function () {
-
-    loop($('.fa-angles-down'));
-
-  }, function () {//motion stop when mouse leaves
-
-    $('.fa-angles-down').stop(true);
-
-  });
-
-  //click on the right side of the navigation bar
-  $('.nav-right').click(function () {
-
-    //if the textarea is hidden, show it, otherwise, hide it
-    $('#submitTweet').is(':hidden') ? $('#submitTweet').slideDown() : $('#submitTweet').slideUp();
-
-  });
 
   //get request for the previous tweets
   $.get('/tweets', (data) => {
 
     renderTweets(data);
+    tweetsHover();
 
   });
 
@@ -148,6 +135,7 @@ $(() => {
             $('#tweet-text').val('');
             $('.counter').val(140);
 
+            tweetsHover();
           })
         });
 
@@ -162,7 +150,6 @@ $(() => {
         slideError($('#no-content'));
 
     }
-    
 
   });
 
