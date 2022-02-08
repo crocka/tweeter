@@ -51,12 +51,14 @@ const escape = function (str) {
 
 //append the the array of tweets to index.html
 const renderTweets = function (tweets) {
+  
+  tweets = tweets.reverse();
 
-  tweets.forEach((tweet) => {
+  for(const tweet of tweets) {
 
-    $('.container .new-tweet').prepend(createTweetElement(tweet));
+    $('.container .new-tweet').append(createTweetElement(tweet));
 
-  });
+  }
 
 };
 
@@ -127,13 +129,15 @@ $(() => {
 
           $.get('/tweets', (data) => {
 
-            renderTweets(data);
+            //put the last element onto the top of the tweet thread
+            $('.container .new-tweet').prepend(createTweetElement(data[data.length - 1]));
 
             //clear text area and reset counter
             $('#tweet-text').val('');
             $('.counter').val(140);
 
             tweetsHover();
+
           })
         });
 
