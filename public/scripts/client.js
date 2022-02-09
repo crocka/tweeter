@@ -52,7 +52,7 @@ const escape = function (str) {
 //append the the array of tweets to index.html
 const renderTweets = function (tweets) {
   
-  tweets = tweets.reverse();
+  tweets = tweets.reverse(); //reverse the tweets object
 
   for(const tweet of tweets) {
 
